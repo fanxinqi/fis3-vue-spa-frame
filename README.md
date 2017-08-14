@@ -3,6 +3,8 @@
 ```npm install yarn -g```
 
 ```yarn global add fis3```
+项目跟目录下：
+```yarn```
 ## 编译
 ```npm run dev```
 ## 运行
