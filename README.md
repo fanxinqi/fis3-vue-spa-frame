@@ -9,3 +9,6 @@
 ```npm run start```
 ## 访问地址
 [http://127.0.0.1:8080/html/](http://127.0.0.1:8080/html/)
+
+## 线上访问地址
+http://portal.yanxiu.com/statics/area_yanxiu2.0_show/service/html/
