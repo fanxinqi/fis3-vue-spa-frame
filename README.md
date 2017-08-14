@@ -1,4 +1,4 @@
-# fis3，vue，vuex，spa系统架构demo示例
+# fis3、vue、vuex、spa系统架构demo示例
 ## 安装
 ```npm install yarn -g```
 
