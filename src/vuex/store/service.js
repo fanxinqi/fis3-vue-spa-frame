@@ -1,0 +1,383 @@
+import Vue from 'vue'
+
+export const SERVICE_SELECT = 'SERVICE_SELECT' //选择服务
+export const SERVICE_CANCEL = 'SERVICE_CANCEL' //取消服务
+export const ADD_TOTAL = 'ADD_TOTAL' //+合计
+export const REDUCE_TOTAL = 'REDUCE_TOTAL' //-合计
+export const SETYEARSELECT="SETYEARSELECT" //对应年份选择,
+export const TOGGLE_SHOW="TOGGLE_SHOW"
+export const TOGGLE_EDITE="TOGGLE_EDITE" //切换编辑状态
+const domain="http://portal.yanxiu.com/statics/area_yanxiu2.0_show/service/component/";
+const state= {
+  services:[
+    {
+      name:"培训服务",
+      icon:domain+"img/icon_train.png",
+      isShow:false,
+      list:[
+        {
+          name:"远程网络研修",
+          currency:"￥",
+          price:"50",
+          des:"/人/次",
+          isselect:false,
+          people:true,
+          year:[
+            0,0,0
+          ],
+          number:0,
+          total:0
+        },
+        {
+          name:"专家入校专题讲座",
+          currency:"￥",
+          price:"50",
+          des:"/人/次",
+          isselect:false,
+          people:true,
+          year:[
+                0,0,0
+          ],
+          number:0,
+          total:0
+        },
+        {
+              name:"教师外出访问跟岗",
+              currency:"￥",
+              price:"50",
+              des:"/人/次",
+              isselect:false,
+              people:true,
+              year:[
+                  0,0,0
+              ],
+              number:0,
+              total:0
+        },
+        {
+              name:"异地集中培训",
+              currency:"￥",
+              price:"50",
+              des:"/人/次",
+              isselect:false,
+              people:true,
+              year:[
+                  0,0,0
+              ],
+              number:0,
+              total:0
+        }
+
+      ]
+    },
+    {
+          name:"助研服务",
+          icon:domain+"img/icon_research.png",
+          isShow:false,
+          list:[
+              {
+                  name:"课堂教学指导",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"骨干培训指导",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"课题研修指导",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"教学活动指导",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"赛课集训指导",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              }
+          ]
+      },
+    {
+          name:"工具服务",
+          icon:domain+"img/icon_tool.png",
+          isShow:false,
+          list:[
+              {
+                  name:"易学易练",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/年",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"集体备课工具",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/年",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"校本研修管理系统",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/年",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              }
+          ]
+      },
+    {
+          name:"评测服务",
+          icon:domain+"img/icon_evaluation.png",
+          isShow:false,
+          list:[
+              {
+                  name:"教师专业发展综合评测",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"学生综合素质发展评测",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"学校综合评测",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"义务教育均衡发展评测",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/次",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              }
+          ]
+      },
+    {
+          name:"资源服务",
+          icon:domain+"img/icon_resource.png",
+          isShow:false,
+          list:[
+              {
+                  name:"教师备课资源",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/年",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"学生学习资源",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/年",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"创新学习课程",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/年",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              },
+              {
+                  name:"三科教材",
+                  currency:"￥",
+                  price:"2000",
+                  des:"/年",
+                  isselect:false,
+                  people:false,
+                  year:[
+                      0,0,0
+                  ],
+                  number:0,
+                  total:0
+              }
+          ]
+      }
+  ],
+ isEdit:true,
+  total: 0
+};
+window.state=state;
+export default {
+    state,
+    mutations: {
+       //只有mutations能改变原始状态
+        [SERVICE_SELECT](state, parameter) {
+            state.services[parameter["serviceindex"]].list[parameter["itemIndex"]].isselect=true;
+        },
+        [SERVICE_CANCEL](state,parameter) {
+            state.services[parameter["serviceindex"]].list[parameter["itemIndex"]].isselect=false;
+            var yearnumbers= state.services[parameter["serviceindex"]].list[parameter["itemIndex"]].year;
+            var price= state.services[parameter["serviceindex"]].list[parameter["itemIndex"]].price;
+            var result=0;
+            yearnumbers.forEach(function (value,index) {
+                result+=value*price;
+                yearnumbers[index]=0;
+            });
+            if(state.total>=result)state.total-=result;
+
+        },
+        [ADD_TOTAL](state,result){
+            state.total+=result;
+        },
+        [REDUCE_TOTAL](state,result){
+            if(state.total>=result){
+                state.total-=result;
+            }
+        },
+        [SETYEARSELECT](state,parameter) {
+             //var selectyearnumber=;
+             var selectyearpirce=state.services[parameter["serviceindex"]].list[parameter["itemIndex"]].price;
+             state.services[parameter["serviceindex"]].list[parameter["itemIndex"]].year[parameter["yIndex"]]+=parameter["number"];
+            var selectyearcount=parameter["number"]*selectyearpirce;
+            //if(state.total>=selectyearcount){
+                state.total+=selectyearcount;
+            //}
+        },
+        [TOGGLE_SHOW](state,parameter){
+            var service=state.services[parameter["serviceindex"]];
+             service.isShow=!service.isShow;
+        },
+        [TOGGLE_EDITE](state){
+              state.isEdit=!state.isEdit;
+        }
+    },
+
+    actions: {
+        //只有actions能派遣actions 或则提交mutations
+        [SERVICE_SELECT]({commit}, parameter) {
+            commit(SERVICE_SELECT, parameter)
+        },
+        [SERVICE_CANCEL]({commit},parameter) {
+            commit(SERVICE_CANCEL,parameter)
+        },
+        [ADD_TOTAL]({commit},result) {
+            commit(ADD_TOTAL,result)
+        },
+        [REDUCE_TOTAL]({commit},result) {
+            commit(REDUCE_TOTAL,result)
+        },
+        [SETYEARSELECT]({commit},parameter) {
+            commit(SETYEARSELECT,parameter)
+        },
+        [TOGGLE_SHOW]({commit},parameter) {
+            commit(TOGGLE_SHOW,parameter)
+        },
+        [TOGGLE_EDITE]({commit}){
+            commit(TOGGLE_EDITE)
+        }
+    }
+}
